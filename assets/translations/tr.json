@@ -1,0 +1,19 @@
+{
+    "home": {
+        "title": "Ana Sayfa",
+        "description": "Bu bir açıklamadır."
+    },
+    "general": {
+        "buttons": {
+            "save": "Kaydet",
+            "cancel": "İptal",
+            "changeLanguage": "Dili Değiştir"
+        },
+        "dialogs": {
+            "version": {
+                "title": "Sürüm",
+                "message": "Sürüm: {0}"
+            }
+        }
+    }
+}
