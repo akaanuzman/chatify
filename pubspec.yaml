@@ -16,6 +16,7 @@ dependencies:
   # Core Dependencies
   easy_localization: ^3.0.7
   easy_logger: ^0.0.2
+  lottie: ^3.1.2
 
 dev_dependencies:
   flutter_test:
@@ -23,9 +24,24 @@ dev_dependencies:
   flutter_lints: ^3.0.0
   very_good_analysis: ^6.0.0
   build_runner: ^2.4.11
+  flutter_gen_runner: ^5.6.0
+
+# Generating assets and colors options
+flutter_gen:
+  output: lib/products/asset/
+
+  integrations:
+    lottie: true
+    flutter_svg: true
+
+  colors:
+    inputs:
+      - assets/color/colors.xml
 
 flutter:
   uses-material-design: true
 
   assets:
     - assets/translations/
+    - assets/lotties/
+    - assets/color/
