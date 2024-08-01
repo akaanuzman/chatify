@@ -1,3 +1,5 @@
+import 'package:chatify_app/products/asset/assets.gen.dart';
+import 'package:chatify_app/products/asset/colors.gen.dart';
 import 'package:chatify_app/products/enums/devices_locales.dart';
 import 'package:chatify_app/products/init/app_localizations.dart';
 import 'package:chatify_app/products/init/language/locale_keys.g.dart';
@@ -19,7 +21,16 @@ final class HomeView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(LocaleKeys.home_title).tr(),
+            Assets.lotties.bgLogin.lottie(
+              width: 200,
+              height: 200,
+            ),
+            const Text(
+              LocaleKeys.home_title,
+              style: TextStyle(
+                color: ColorName.colorPrimary,
+              ),
+            ).tr(),
             const Text(LocaleKeys.home_description).tr(),
             ElevatedButton(
               onPressed: () {
