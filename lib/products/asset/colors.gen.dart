@@ -14,5 +14,5 @@ class ColorName {
   ColorName._();
 
   /// Color: #FF5733
-  static const Color colorPrimary = Color(0xFFFF5733);
+  static const Color primary = Color(0xFFFF5733);
 }
