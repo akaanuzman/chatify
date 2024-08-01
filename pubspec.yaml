@@ -17,6 +17,7 @@ dependencies:
   easy_localization: ^3.0.7
   easy_logger: ^0.0.2
   lottie: ^3.1.2
+  kartal: ^4.0.4
 
 dev_dependencies:
   flutter_test:

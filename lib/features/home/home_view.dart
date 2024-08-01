@@ -28,7 +28,7 @@ final class HomeView extends StatelessWidget {
             const Text(
               LocaleKeys.home_title,
               style: TextStyle(
-                color: ColorName.colorPrimary,
+                color: ColorName.primary,
               ),
             ).tr(),
             const Text(LocaleKeys.home_description).tr(),
