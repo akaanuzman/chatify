@@ -1,4 +1,4 @@
-import 'package:chatify_app/products/utility/cache/cache_model.dart';
+import 'package:chatify_app/products/utility/cache/core/cache_model.dart';
 
 /// The CacheManager class is an abstract class.
 abstract class CacheManager {

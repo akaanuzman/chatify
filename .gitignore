@@ -16,6 +16,10 @@ migrate_working_dir/
 *.g.dart
 *.gr.dart
 
+# For cache
+*.dylib
+test/hive/results
+
 # IntelliJ related
 *.iml
 *.ipr

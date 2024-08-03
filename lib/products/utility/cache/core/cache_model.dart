@@ -10,4 +10,8 @@ mixin CacheModel {
   ///
   /// Returns an instance of the cache model.
   CacheModel fromDynamicJson(dynamic json);
+
+  /// Converts the cache model to a dynamic JSON object.
+  /// Returns a dynamic object that represents the cache model.
+  Map<String, dynamic> toJson();
 }

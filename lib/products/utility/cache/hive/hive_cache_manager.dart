@@ -1,5 +1,5 @@
-import 'package:chatify_app/products/utility/cache/cache_manager.dart';
-import 'package:chatify_app/products/utility/cache/cache_model.dart';
+import 'package:chatify_app/products/utility/cache/core/cache_manager.dart';
+import 'package:chatify_app/products/utility/cache/core/cache_model.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 
