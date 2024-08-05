@@ -1,3 +1,4 @@
+import 'package:chatify_app/products/asset/colors.gen.dart';
 import 'package:chatify_app/products/utility/theme/i_theme.dart';
 import 'package:chatify_app/products/utility/theme/light/light_text_theme.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,10 @@ final class LightTheme implements IAppTheme {
   @override
   ThemeData get currentTheme => ThemeData.light().copyWith(
         textTheme: currentTextTheme,
+        primaryColor: ColorName.primary,
+        colorScheme: const ColorScheme.light(
+          primary: ColorName.primary,
+        ),
       );
 
   @override

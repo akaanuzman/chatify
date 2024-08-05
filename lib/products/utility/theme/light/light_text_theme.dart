@@ -1,3 +1,4 @@
+import 'package:chatify_app/products/asset/colors.gen.dart';
 import 'package:chatify_app/products/utility/theme/i_text_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,27 @@ import 'package:flutter/material.dart';
 /// and use it in the MaterialApp theme property
 @immutable
 final class LightTextTheme implements IAppTextTheme {
+  final TextStyle _textStyle = const TextStyle(
+    fontFamily: 'Montserrat',
+    color: ColorName.darkText,
+  );
+
   @override
-  TextTheme get currentTextTheme => ThemeData.light().textTheme.copyWith();
+  TextTheme get currentTextTheme => ThemeData.light().textTheme.copyWith(
+        displayLarge: _textStyle,
+        displayMedium: _textStyle,
+        displaySmall: _textStyle,
+        headlineLarge: _textStyle,
+        headlineMedium: _textStyle,
+        headlineSmall: _textStyle,
+        titleLarge: _textStyle,
+        titleMedium: _textStyle,
+        titleSmall: _textStyle,
+        bodyLarge: _textStyle,
+        bodyMedium: _textStyle,
+        bodySmall: _textStyle,
+        labelLarge: _textStyle,
+        labelMedium: _textStyle,
+        labelSmall: _textStyle,
+      );
 }

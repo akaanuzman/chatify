@@ -1,4 +1,8 @@
 {
+    "splash": {
+        "title": "Hoşgeldin!",
+        "description": "Yeni nesil mesajlaşma uygulaması."
+    },
     "home": {
         "title": "Ana Sayfa",
         "description": "Bu bir açıklamadır."
