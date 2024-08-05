@@ -20,6 +20,42 @@ class $AssetsColorGen {
   List<String> get values => [colors];
 }
 
+class $AssetsEnvGen {
+  const $AssetsEnvGen();
+
+  /// File path: assets/env/.dev.env
+  String get aDev => 'assets/env/.dev.env';
+
+  /// File path: assets/env/.prod.env
+  String get aProd => 'assets/env/.prod.env';
+
+  /// List of all assets
+  List<String> get values => [aDev, aProd];
+}
+
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/Montserrat-Medium.ttf
+  String get montserratMedium => 'assets/fonts/Montserrat-Medium.ttf';
+
+  /// List of all assets
+  List<String> get values => [montserratMedium];
+}
+
+class $AssetsIconsGen {
+  const $AssetsIconsGen();
+
+  /// File path: assets/icons/ic_app.png
+  AssetGenImage get icApp => const AssetGenImage('assets/icons/ic_app.png');
+
+  /// File path: assets/icons/ic_main.png
+  AssetGenImage get icMain => const AssetGenImage('assets/icons/ic_main.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [icApp, icMain];
+}
+
 class $AssetsLottiesGen {
   const $AssetsLottiesGen();
 
@@ -48,8 +84,92 @@ class Assets {
   Assets._();
 
   static const $AssetsColorGen color = $AssetsColorGen();
+  static const $AssetsEnvGen env = $AssetsEnvGen();
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
+  static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsLottiesGen lotties = $AssetsLottiesGen();
   static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
+}
+
+class AssetGenImage {
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
+
+  final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
+
+  Image image({
+    Key? key,
+    AssetBundle? bundle,
+    ImageFrameBuilder? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    String? semanticLabel,
+    bool excludeFromSemantics = false,
+    double? scale,
+    double? width,
+    double? height,
+    Color? color,
+    Animation<double>? opacity,
+    BlendMode? colorBlendMode,
+    BoxFit? fit,
+    AlignmentGeometry alignment = Alignment.center,
+    ImageRepeat repeat = ImageRepeat.noRepeat,
+    Rect? centerSlice,
+    bool matchTextDirection = false,
+    bool gaplessPlayback = false,
+    bool isAntiAlias = false,
+    String? package,
+    FilterQuality filterQuality = FilterQuality.low,
+    int? cacheWidth,
+    int? cacheHeight,
+  }) {
+    return Image.asset(
+      _assetName,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      semanticLabel: semanticLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      scale: scale,
+      width: width,
+      height: height,
+      color: color,
+      opacity: opacity,
+      colorBlendMode: colorBlendMode,
+      fit: fit,
+      alignment: alignment,
+      repeat: repeat,
+      centerSlice: centerSlice,
+      matchTextDirection: matchTextDirection,
+      gaplessPlayback: gaplessPlayback,
+      isAntiAlias: isAntiAlias,
+      package: package,
+      filterQuality: filterQuality,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
+    );
+  }
+
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
 }
 
 class LottieGenImage {

@@ -1,4 +1,8 @@
 {
+    "splash": {
+        "title": "Welcome!",
+        "description": "New generation messaging application."
+    },
     "home": {
         "title": "Home Page",
         "description": "This is a description."

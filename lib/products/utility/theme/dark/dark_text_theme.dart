@@ -8,6 +8,24 @@ import 'package:flutter/material.dart';
 /// and use it in the MaterialApp theme property
 @immutable
 final class DarkTextTheme implements IAppTextTheme {
+  final TextStyle _textStyle = const TextStyle(fontFamily: 'Montserrat');
+
   @override
-  TextTheme get currentTextTheme => ThemeData.dark().textTheme.copyWith();
+  TextTheme get currentTextTheme => ThemeData.dark().textTheme.copyWith(
+        displayLarge: _textStyle,
+        displayMedium: _textStyle,
+        displaySmall: _textStyle,
+        headlineLarge: _textStyle,
+        headlineMedium: _textStyle,
+        headlineSmall: _textStyle,
+        titleLarge: _textStyle,
+        titleMedium: _textStyle,
+        titleSmall: _textStyle,
+        bodyLarge: _textStyle,
+        bodyMedium: _textStyle,
+        bodySmall: _textStyle,
+        labelLarge: _textStyle,
+        labelMedium: _textStyle,
+        labelSmall: _textStyle,
+      );
 }
