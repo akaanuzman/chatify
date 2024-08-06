@@ -3,6 +3,26 @@
         "title": "Welcome!",
         "description": "New generation messaging application."
     },
+    "login": {
+        "title": "Welcome to Chatify!",
+        "description": "Please login to continue.",
+        "dontHaveAccount": "Don't have an account?",
+        "buttons": {
+            "signIn": "Sign In",
+            "signUp": "Sign Up",
+            "forgotPassword": "Forgot Password?"
+        }
+    },
+    "field": {
+        "labels": {
+            "email": "E-mail",
+            "password": "Password"
+        },
+        "hints": {
+            "email": "example@example.com",
+            "password": "********"
+        }
+    },
     "home": {
         "title": "Home Page",
         "description": "This is a description."

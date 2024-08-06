@@ -3,6 +3,26 @@
         "title": "Hoşgeldin!",
         "description": "Yeni nesil mesajlaşma uygulaması."
     },
+    "login": {
+        "title": "Chatify'e Hoşgeldiniz!",
+        "description": "Devam etmek için lütfen giriş yapın.",
+        "dontHaveAccount": "Hesabınız yok mu?",
+        "buttons": {
+            "signIn": "Giriş Yap",
+            "signUp": "Kayıt Ol",
+            "forgotPassword": "Şifremi Unuttum"
+        }
+    },
+    "field": {
+        "labels": {
+            "email": "E-posta",
+            "password": "Şifre"
+        },
+        "hints": {
+            "email": "example@example.com",
+            "password": "********"
+        }
+    },
     "home": {
         "title": "Ana Sayfa",
         "description": "Bu bir açıklamadır."
