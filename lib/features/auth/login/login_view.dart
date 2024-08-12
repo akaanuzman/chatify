@@ -31,79 +31,139 @@ class _LoginViewState extends State<LoginView> {
         child: SingleChildScrollView(
           padding: context.padding.normal,
           keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              context.sized.emptySizedHeightBoxNormal,
-              Assets.lotties.bgLogin.lottie(),
-              context.sized.emptySizedHeightBoxLow,
-              Card(
-                child: Padding(
-                  padding: context.padding.medium,
-                  child: Column(
-                    children: [
-                      Text(
-                        LocaleKeys.login_title,
-                        style: context.general.textTheme.bodyLarge,
-                      ).tr(),
-                      context.sized.emptySizedHeightBoxLow,
-                      Text(
-                        LocaleKeys.login_description,
-                        style: context.general.textTheme.bodySmall,
-                      ).tr(),
-                      context.sized.emptySizedHeightBoxLow3x,
-                      ChatifyTextFormField(
-                        label: LocaleKeys.field_labels_email.tr(),
-                        hintText: LocaleKeys.field_hints_email.tr(),
-                        prefixIcon: const Icon(Icons.email),
-                        controller: context.inherited.emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                      ),
-                      context.sized.emptySizedHeightBoxLow,
-                      ValueListenableBuilder<bool>(
-                        valueListenable: context.inherited.obscureTextNotifier,
-                        builder: (
-                          BuildContext context,
-                          bool value,
-                          Widget? child,
-                        ) {
-                          return ChatifyTextFormField(
-                            label: LocaleKeys.field_labels_password.tr(),
-                            hintText: LocaleKeys.field_hints_password.tr(),
-                            prefixIcon: const Icon(Icons.lock),
-                            suffixIcon: value
-                                ? IconButton(
-                                    icon: const Icon(Icons.visibility),
-                                    onPressed:
-                                        context.inherited.toggleObscureText,
-                                  )
-                                : IconButton(
-                                    icon: const Icon(Icons.visibility_off),
-                                    onPressed:
-                                        context.inherited.toggleObscureText,
-                                  ),
-                            obscureText: value,
-                            controller: context.inherited.passwordController,
-                            keyboardType: TextInputType.visiblePassword,
-                            textInputAction: TextInputAction.done,
-                          );
-                        },
-                      ),
-                      const _ForgotPasswordButton(),
-                      context.sized.emptySizedHeightBoxLow3x,
-                      const _SignInButton(),
-                      context.sized.emptySizedHeightBoxLow,
-                      const _DontHaveAnAccount(),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+          child: const _LoginSection(),
         ),
       ),
     );
+  }
+}
+
+/// The login section widget.
+final class _LoginSection extends StatelessWidget {
+  const _LoginSection();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        context.sized.emptySizedHeightBoxNormal,
+        Assets.lotties.bgLogin.lottie(),
+        context.sized.emptySizedHeightBoxLow,
+        const _LoginCard(),
+      ],
+    );
+  }
+}
+
+/// The login card widget.
+final class _LoginCard extends StatelessWidget {
+  const _LoginCard();
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: context.padding.medium,
+        child: Column(
+          children: [
+            const _CardTitleAndSubtitle(),
+            context.sized.emptySizedHeightBoxLow3x,
+            const _EmailField(),
+            context.sized.emptySizedHeightBoxLow,
+            const _PasswordField(),
+            const _ForgotPasswordButton(),
+            context.sized.emptySizedHeightBoxLow3x,
+            const _SignInButton(),
+            context.sized.emptySizedHeightBoxLow,
+            const _DontHaveAnAccount(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// The card title and subtitle widget.
+final class _CardTitleAndSubtitle extends StatelessWidget {
+  const _CardTitleAndSubtitle();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          LocaleKeys.login_title,
+          style: context.general.textTheme.bodyLarge,
+        ).tr(),
+        context.sized.emptySizedHeightBoxLow,
+        Text(
+          LocaleKeys.login_description,
+          style: context.general.textTheme.bodySmall,
+        ).tr(),
+      ],
+    );
+  }
+}
+
+final class _EmailField extends StatelessWidget {
+  const _EmailField();
+
+  @override
+  Widget build(BuildContext context) {
+    return ChatifyTextFormField(
+      label: LocaleKeys.field_labels_email.tr(),
+      hintText: LocaleKeys.field_hints_email.tr(),
+      prefixIcon: const Icon(Icons.email),
+      controller: context.inherited.emailController,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+    );
+  }
+}
+
+/// The password field widget.
+final class _PasswordField extends StatelessWidget {
+  const _PasswordField();
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<bool>(
+      valueListenable: context.inherited.obscureTextNotifier,
+      builder: (BuildContext context, bool value, Widget? child) {
+        return ChatifyTextFormField(
+          label: LocaleKeys.field_labels_password.tr(),
+          hintText: LocaleKeys.field_hints_password.tr(),
+          prefixIcon: const Icon(Icons.lock),
+          suffixIcon: _EyeIcon(obscureText: value),
+          obscureText: value,
+          controller: context.inherited.passwordController,
+          keyboardType: TextInputType.visiblePassword,
+          textInputAction: TextInputAction.done,
+        );
+      },
+    );
+  }
+}
+
+/// The eye icon widget.
+final class _EyeIcon extends StatelessWidget {
+  const _EyeIcon({required this.obscureText});
+  final bool obscureText;
+
+  @override
+  Widget build(BuildContext context) {
+    if (obscureText) {
+      return IconButton(
+        icon: const Icon(Icons.visibility),
+        onPressed: context.inherited.toggleObscureText,
+      );
+    } else {
+      return IconButton(
+        icon: const Icon(Icons.visibility_off),
+        onPressed: context.inherited.toggleObscureText,
+      );
+    }
   }
 }
 
