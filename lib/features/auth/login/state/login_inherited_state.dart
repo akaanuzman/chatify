@@ -1,17 +1,21 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/auth/login/login_view.dart';
 import 'package:chatify_app/features/auth/login/state/login_inherited_widget.dart';
 import 'package:flutter/material.dart';
 
+@RoutePage()
+
 /// Cloud
-class LoginInheritedProvider extends StatefulWidget {
+class LoginInheritedProviderView extends StatefulWidget {
   /// Default constructor
-  const LoginInheritedProvider({super.key});
+  const LoginInheritedProviderView({super.key});
 
   @override
-  State<LoginInheritedProvider> createState() => LoginInheritedProviderState();
+  State<LoginInheritedProviderView> createState() =>
+      LoginInheritedProviderState();
 }
 
-class LoginInheritedProviderState extends State<LoginInheritedProvider>
+class LoginInheritedProviderState extends State<LoginInheritedProviderView>
     with _LoginInheritedStateMixin {
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class LoginInheritedProviderState extends State<LoginInheritedProvider>
   }
 }
 
-mixin _LoginInheritedStateMixin on State<LoginInheritedProvider> {
+mixin _LoginInheritedStateMixin on State<LoginInheritedProviderView> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();

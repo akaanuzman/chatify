@@ -11,7 +11,9 @@ mixin SplashViewMixin on State<SplashView> {
     /// After 2 seconds, push to [HomeRoute]
     /// We will some process in the future
     Future<void>.delayed(const Duration(seconds: 2), () {
-      context.router.replace(const LoginRoute()); // AutoRoute kullanarak geçiş
+      context.router.replace(
+        const LoginInheritedProviderRoute(),
+      );
     });
     super.initState();
   }

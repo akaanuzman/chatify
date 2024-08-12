@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/auth/login/state/login_inherited_state.dart';
 import 'package:chatify_app/features/auth/login/state/login_inherited_widget.dart';
 import 'package:chatify_app/products/asset/assets.gen.dart';
@@ -12,8 +11,6 @@ extension _LoginContext on BuildContext {
   /// Get inherited state of LoginInheritedState
   LoginInheritedProviderState get inherited => LoginInherited.of(this);
 }
-
-@RoutePage()
 
 /// The login view of the app.
 /// App will show this view when user is not logged in.
