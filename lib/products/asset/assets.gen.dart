@@ -63,8 +63,12 @@ class $AssetsLottiesGen {
   LottieGenImage get bgLogin =>
       const LottieGenImage('assets/lotties/bg_login.json');
 
+  /// File path: assets/lotties/bg_register.json
+  LottieGenImage get bgRegister =>
+      const LottieGenImage('assets/lotties/bg_register.json');
+
   /// List of all assets
-  List<LottieGenImage> get values => [bgLogin];
+  List<LottieGenImage> get values => [bgLogin, bgRegister];
 }
 
 class $AssetsTranslationsGen {
