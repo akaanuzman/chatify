@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/auth/login/state/login_inherited_state.dart';
-import 'package:chatify_app/features/auth/register/register_view.dart';
+import 'package:chatify_app/features/auth/register/state/register_inherited_state.dart';
 import 'package:chatify_app/features/common/splash/splash_view.dart';
 import 'package:chatify_app/features/home/home_view.dart';
 
@@ -15,6 +15,6 @@ final class AppRouter extends _$AppRouter {
         AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: LoginInheritedProviderRoute.page),
-        AutoRoute(page: RegisterRoute.page),
+        AutoRoute(page: RegisterInheritedProviderRoute.page),
       ];
 }

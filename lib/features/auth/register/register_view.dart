@@ -1,13 +1,18 @@
-import 'package:auto_route/auto_route.dart';
+import 'package:chatify_app/features/auth/register/state/register_inherited_state.dart';
+import 'package:chatify_app/features/auth/register/state/register_inherited_widget.dart';
 import 'package:chatify_app/products/asset/assets.gen.dart';
 import 'package:chatify_app/products/components/field/chatify_text_form_field.dart';
+import 'package:chatify_app/products/components/field/email_field.dart';
+import 'package:chatify_app/products/components/text/auth_card_title_and_subtitle.dart';
 import 'package:chatify_app/products/init/language/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
-@RoutePage()
+extension _RegisterContext on BuildContext {
+  /// Get inherited state of RegisterInheritedProviderState
+  RegisterInheritedProviderState get inherited => RegisterInherited.of(this);
+}
 
 /// The register view of the app.
 /// App will show this view when user is not logged in.
@@ -44,32 +49,23 @@ final class _RegisterCard extends StatelessWidget {
         padding: context.padding.medium,
         child: Column(
           children: [
-            AspectRatio(
-              aspectRatio: 2,
-              child: Assets.lotties.bgRegister.lottie(),
+            const _Image(),
+            AuthCardTitleAndSubtitle(
+              title: LocaleKeys.auth_register_title.tr(),
+              subtitle: LocaleKeys.auth_register_description.tr(),
             ),
-            const _CardTitleAndSubtitle(),
             context.sized.emptySizedHeightBoxLow3x,
-            ChatifyTextFormField(
-              label: LocaleKeys.field_labels_username.tr(),
-              hintText: LocaleKeys.field_hints_username.tr(),
-              prefixIcon: const Icon(Icons.person),
-              keyboardType: TextInputType.name,
-              textInputAction: TextInputAction.next,
-            ),
+            const _UsernameField(),
             context.sized.emptySizedHeightBoxLow,
-            const _EmailField(),
+            EmailField(emailController: context.inherited.emailController),
             context.sized.emptySizedHeightBoxLow,
-            _PasswordField(valueListenable: ValueNotifier<bool>(false)),
+            const _PasswordField(),
             context.sized.emptySizedHeightBoxLow,
-            _PasswordField(
-              valueListenable: ValueNotifier<bool>(false),
-              isConfrimPassword: true,
-            ),
+            const _ConfrimPasswordField(),
             context.sized.emptySizedHeightBoxLow3x,
             const _SignInButton(),
             context.sized.emptySizedHeightBoxLow,
-            const _DontHaveAnAccount(),
+            const _AlreadyHaveAccount(),
           ],
         ),
       ),
@@ -77,93 +73,108 @@ final class _RegisterCard extends StatelessWidget {
   }
 }
 
-// TODO: MAKE COMPONENTS REUSABLE
-/// The card title and subtitle widget.
-final class _CardTitleAndSubtitle extends StatelessWidget {
-  const _CardTitleAndSubtitle();
+/// The image widget.
+final class _Image extends StatelessWidget {
+  const _Image();
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          LocaleKeys.auth_register_title,
-          style: context.general.textTheme.bodyLarge,
-        ).tr(),
-        context.sized.emptySizedHeightBoxLow,
-        Text(
-          LocaleKeys.auth_register_description,
-          style: context.general.textTheme.bodySmall,
-        ).tr(),
-      ],
+    return AspectRatio(
+      aspectRatio: 2,
+      child: Assets.lotties.bgRegister.lottie(),
     );
   }
 }
 
-final class _EmailField extends StatelessWidget {
-  const _EmailField();
+/// The username field widget.
+final class _UsernameField extends StatelessWidget {
+  const _UsernameField();
 
   @override
   Widget build(BuildContext context) {
     return ChatifyTextFormField(
-      label: LocaleKeys.field_labels_email.tr(),
-      hintText: LocaleKeys.field_hints_email.tr(),
-      prefixIcon: const Icon(Icons.email),
-      keyboardType: TextInputType.emailAddress,
+      label: LocaleKeys.field_labels_username.tr(),
+      hintText: LocaleKeys.field_hints_username.tr(),
+      prefixIcon: const Icon(Icons.person),
+      keyboardType: TextInputType.name,
       textInputAction: TextInputAction.next,
+      controller: context.inherited.usernameController,
     );
   }
 }
 
-// TODO: MAKE COMPONENTS REUSABLE
 /// The password field widget.
 final class _PasswordField extends StatelessWidget {
-  const _PasswordField({
-    required this.valueListenable,
-    this.isConfrimPassword = false,
-  });
-  final bool isConfrimPassword;
-  final ValueListenable<bool> valueListenable;
+  const _PasswordField();
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<bool>(
-      valueListenable: valueListenable,
+      valueListenable: context.inherited.obscureTextNotifier,
       builder: (BuildContext context, bool value, Widget? child) {
         return ChatifyTextFormField(
-          label: isConfrimPassword
-              ? LocaleKeys.field_labels_confirmPassword.tr()
-              : LocaleKeys.field_labels_password.tr(),
+          label: LocaleKeys.field_labels_password.tr(),
           hintText: LocaleKeys.field_hints_password.tr(),
           prefixIcon: const Icon(Icons.lock),
           suffixIcon: _EyeIcon(obscureText: value),
           obscureText: value,
+          controller: context.inherited.passwordController,
           keyboardType: TextInputType.visiblePassword,
-          textInputAction:
-              isConfrimPassword ? TextInputAction.done : TextInputAction.next,
+          textInputAction: TextInputAction.next,
         );
       },
     );
   }
 }
 
-// TODO: MAKE COMPONENTS REUSABLE
+/// The confrim password field widget.
+final class _ConfrimPasswordField extends StatelessWidget {
+  const _ConfrimPasswordField();
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<bool>(
+      valueListenable: context.inherited.confirmPasswordObscureTextNotifier,
+      builder: (BuildContext context, bool value, Widget? child) {
+        return ChatifyTextFormField(
+          label: LocaleKeys.field_labels_password.tr(),
+          hintText: LocaleKeys.field_hints_password.tr(),
+          prefixIcon: const Icon(Icons.lock),
+          suffixIcon: _EyeIcon(
+            obscureText: value,
+            confirmPassword: true,
+          ),
+          obscureText: value,
+          controller: context.inherited.confirmPasswordController,
+          keyboardType: TextInputType.visiblePassword,
+          textInputAction: TextInputAction.done,
+        );
+      },
+    );
+  }
+}
+
 /// The eye icon widget.
 final class _EyeIcon extends StatelessWidget {
-  const _EyeIcon({required this.obscureText});
+  const _EyeIcon({required this.obscureText, this.confirmPassword = false});
   final bool obscureText;
+  final bool confirmPassword;
 
   @override
   Widget build(BuildContext context) {
     if (obscureText) {
       return IconButton(
         icon: const Icon(Icons.visibility),
-        onPressed: () {},
+        onPressed: confirmPassword
+            ? context.inherited.toggleConfirmPasswordObscureText
+            : context.inherited.toggleObscureText,
       );
     } else {
       return IconButton(
         icon: const Icon(Icons.visibility_off),
-        onPressed: () {},
+        onPressed: confirmPassword
+            ? context.inherited.toggleConfirmPasswordObscureText
+            : context.inherited.toggleObscureText,
       );
     }
   }
@@ -183,8 +194,8 @@ final class _SignInButton extends StatelessWidget {
 }
 
 /// The don't have an account widget.
-final class _DontHaveAnAccount extends StatelessWidget {
-  const _DontHaveAnAccount();
+final class _AlreadyHaveAccount extends StatelessWidget {
+  const _AlreadyHaveAccount();
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +207,7 @@ final class _DontHaveAnAccount extends StatelessWidget {
           style: context.general.textTheme.bodySmall,
         ).tr(),
         TextButton(
-          onPressed: () {},
+          onPressed: context.inherited.goToLoginPage,
           child: const Text(
             LocaleKeys.buttons_auth_signIn,
           ).tr(),

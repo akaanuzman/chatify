@@ -26,7 +26,6 @@ mixin _LoginInheritedStateMixin on State<LoginInheritedProviderView> {
 
   /// Go to the register page
   /// It will navigate to the register page
-  void goToRegisterPage() {
-    AutoRouter.of(context).push(const RegisterRoute());
-  }
+  void goToRegisterPage() =>
+      context.router.push(const RegisterInheritedProviderRoute());
 }

@@ -2,6 +2,8 @@ import 'package:chatify_app/features/auth/login/state/login_inherited_state.dart
 import 'package:chatify_app/features/auth/login/state/login_inherited_widget.dart';
 import 'package:chatify_app/products/asset/assets.gen.dart';
 import 'package:chatify_app/products/components/field/chatify_text_form_field.dart';
+import 'package:chatify_app/products/components/field/email_field.dart';
+import 'package:chatify_app/products/components/text/auth_card_title_and_subtitle.dart';
 import 'package:chatify_app/products/init/language/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -67,9 +69,12 @@ final class _LoginCard extends StatelessWidget {
         padding: context.padding.medium,
         child: Column(
           children: [
-            const _CardTitleAndSubtitle(),
+            AuthCardTitleAndSubtitle(
+              title: LocaleKeys.auth_login_title.tr(),
+              subtitle: LocaleKeys.auth_login_description.tr(),
+            ),
             context.sized.emptySizedHeightBoxLow3x,
-            const _EmailField(),
+            EmailField(emailController: context.inherited.emailController),
             context.sized.emptySizedHeightBoxLow,
             const _PasswordField(),
             const _ForgotPasswordButton(),
@@ -84,46 +89,6 @@ final class _LoginCard extends StatelessWidget {
   }
 }
 
-// TODO: MAKE COMPONENTS REUSABLE
-/// The card title and subtitle widget.
-final class _CardTitleAndSubtitle extends StatelessWidget {
-  const _CardTitleAndSubtitle();
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          LocaleKeys.auth_login_title,
-          style: context.general.textTheme.bodyLarge,
-        ).tr(),
-        context.sized.emptySizedHeightBoxLow,
-        Text(
-          LocaleKeys.auth_login_description,
-          style: context.general.textTheme.bodySmall,
-        ).tr(),
-      ],
-    );
-  }
-}
-
-final class _EmailField extends StatelessWidget {
-  const _EmailField();
-
-  @override
-  Widget build(BuildContext context) {
-    return ChatifyTextFormField(
-      label: LocaleKeys.field_labels_email.tr(),
-      hintText: LocaleKeys.field_hints_email.tr(),
-      prefixIcon: const Icon(Icons.email),
-      controller: context.inherited.emailController,
-      keyboardType: TextInputType.emailAddress,
-      textInputAction: TextInputAction.next,
-    );
-  }
-}
-
-// TODO: MAKE COMPONENTS REUSABLE
 /// The password field widget.
 final class _PasswordField extends StatelessWidget {
   const _PasswordField();
@@ -148,7 +113,6 @@ final class _PasswordField extends StatelessWidget {
   }
 }
 
-// TODO: MAKE COMPONENTS REUSABLE
 /// The eye icon widget.
 final class _EyeIcon extends StatelessWidget {
   const _EyeIcon({required this.obscureText});
