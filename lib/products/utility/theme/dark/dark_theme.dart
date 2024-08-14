@@ -4,6 +4,8 @@ import 'package:chatify_app/products/utility/theme/dark/dark_text_theme.dart';
 import 'package:chatify_app/products/utility/theme/i_theme.dart';
 import 'package:flutter/material.dart';
 
+/// TODO: REFACTOR LATER
+
 /// Dark theme for the application
 /// This class provides the dark theme for the application
 /// by implementing the IAppTheme interface
@@ -23,6 +25,17 @@ final class DarkTheme implements IAppTheme {
         inputDecorationTheme: _inputDecorationTheme,
         elevatedButtonTheme: _elevatedButtonTheme,
         textButtonTheme: _textButtonTheme,
+        appBarTheme: AppBarTheme(
+          centerTitle: false,
+          titleTextStyle: currentTextTheme.titleLarge?.copyWith(
+            color: ColorName.lightText,
+            fontSize: 20,
+            fontFamily: 'Montserrat',
+          ),
+        ),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          selectedItemColor: ColorName.primary,
+        ),
       );
 
   /// The input decoration theme for the application

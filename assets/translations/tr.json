@@ -15,11 +15,25 @@
             "alreadyHaveAccount": "Zaten bir hesabınız var mı?"
         }
     },
+    "navbar": {
+        "messages": "Mesajlar",
+        "settings": "Ayarlar",
+        "logout": "Çıkış Yap",
+        "profile": "Profil"
+    },
     "buttons": {
         "auth": {
             "signIn": "Giriş Yap",
             "signUp": "Kayıt Ol",
             "forgotPassword": "Şifremi Unuttum"
+        },
+        "yes": "Evet",
+        "no": "Hayır"
+    },
+    "dialogs": {
+        "logout": {
+            "title": "Uyarı",
+            "message": "Çıkış yapmak istediğinizden emin misiniz?"
         }
     },
     "field": {

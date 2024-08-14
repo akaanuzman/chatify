@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/auth/register/register_view.dart';
 import 'package:chatify_app/features/auth/register/state/register_inherited_widget.dart';
+import 'package:chatify_app/products/routers/app_router.dart';
 import 'package:flutter/material.dart';
 
 part 'mixin/register_inherited_mixin.dart';

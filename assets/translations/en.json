@@ -15,11 +15,25 @@
             "alreadyHaveAccount": "Already have an account?"
         }
     },
+    "navbar": {
+        "messages": "Messages",
+        "settings": "Settings",
+        "logout": "Logout",
+        "profile": "Profile"
+    },
     "buttons": {
         "auth": {
             "signIn": "Sign In",
             "signUp": "Sign Up",
             "forgotPassword": "Forgot Password?"
+        },
+        "yes": "Yes",
+        "no": "No"
+    },
+    "dialogs": {
+        "logout": {
+            "title": "Warning",
+            "message": "Are you sure you want to logout?"
         }
     },
     "field": {
