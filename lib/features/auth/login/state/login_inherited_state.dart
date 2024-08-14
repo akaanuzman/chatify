@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/auth/login/login_view.dart';
 import 'package:chatify_app/features/auth/login/state/login_inherited_widget.dart';
+import 'package:chatify_app/products/routers/app_router.dart';
 import 'package:flutter/material.dart';
 
 part 'mixin/login_inherited_mixin.dart';

@@ -23,4 +23,10 @@ mixin _LoginInheritedStateMixin on State<LoginInheritedProviderView> {
   void checkFormValidate() {
     formValidateNotifier.value = formKey.currentState?.validate() ?? false;
   }
+
+  /// Go to the register page
+  /// It will navigate to the register page
+  void goToRegisterPage() {
+    AutoRouter.of(context).push(const RegisterRoute());
+  }
 }

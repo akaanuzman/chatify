@@ -3,11 +3,20 @@
         "title": "Welcome!",
         "description": "New generation messaging application."
     },
-    "login": {
-        "title": "Welcome to Chatify!",
-        "description": "Please login to continue.",
-        "dontHaveAccount": "Don't have an account?",
-        "buttons": {
+    "auth": {
+        "login": {
+            "title": "Welcome to Chatify!",
+            "description": "Please login to continue.",
+            "dontHaveAccount": "Don't have an account?"
+        },
+        "register": {
+            "title": "Welcome to Chatify!",
+            "description": "Please register to continue.",
+            "alreadyHaveAccount": "Already have an account?"
+        }
+    },
+    "buttons": {
+        "auth": {
             "signIn": "Sign In",
             "signUp": "Sign Up",
             "forgotPassword": "Forgot Password?"
@@ -15,10 +24,13 @@
     },
     "field": {
         "labels": {
+            "username": "Username",
             "email": "E-mail",
-            "password": "Password"
+            "password": "Password",
+            "confirmPassword": "Confirm Password"
         },
         "hints": {
+            "username": "example",
             "email": "example@example.com",
             "password": "********"
         }

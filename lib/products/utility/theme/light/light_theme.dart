@@ -35,6 +35,10 @@ final class LightTheme implements IAppTheme {
         fontSize: 14,
         fontFamily: 'Montserrat',
       ),
+      labelStyle: currentTextTheme.labelSmall?.copyWith(
+        fontSize: 14,
+        fontFamily: 'Montserrat',
+      ),
       prefixIconColor: ColorName.primary,
       suffixIconColor: ColorName.primary,
       contentPadding: const EdgeInsets.all(16),

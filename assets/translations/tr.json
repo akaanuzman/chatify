@@ -3,11 +3,20 @@
         "title": "Hoşgeldin!",
         "description": "Yeni nesil mesajlaşma uygulaması."
     },
-    "login": {
-        "title": "Chatify'e Hoşgeldiniz!",
-        "description": "Devam etmek için lütfen giriş yapın.",
-        "dontHaveAccount": "Hesabınız yok mu?",
-        "buttons": {
+    "auth": {
+        "login": {
+            "title": "Chatify'e Hoşgeldiniz!",
+            "description": "Devam etmek için lütfen giriş yapın.",
+            "dontHaveAccount": "Hesabınız yok mu?"
+        },
+        "register": {
+            "title": "Chatify'e Hoşgeldiniz!",
+            "description": "Devam etmek için lütfen kayıt olun.",
+            "alreadyHaveAccount": "Zaten bir hesabınız var mı?"
+        }
+    },
+    "buttons": {
+        "auth": {
             "signIn": "Giriş Yap",
             "signUp": "Kayıt Ol",
             "forgotPassword": "Şifremi Unuttum"
@@ -15,10 +24,13 @@
     },
     "field": {
         "labels": {
+            "username": "Kullanıcı Adı",
             "email": "E-posta",
-            "password": "Şifre"
+            "password": "Şifre",
+            "confirmPassword": "Şifreyi Onayla"
         },
         "hints": {
+            "username": "örnek",
             "email": "example@example.com",
             "password": "********"
         }
