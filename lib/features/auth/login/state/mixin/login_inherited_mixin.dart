@@ -28,4 +28,11 @@ mixin _LoginInheritedStateMixin on State<LoginInheritedProviderView> {
   /// It will navigate to the register page
   void goToRegisterPage() =>
       context.router.push(const RegisterInheritedProviderRoute());
+
+  /// Go to the home page
+  /// It will navigate to the home page
+  void goToHomePage() => context.router.pushAndPopUntil(
+        const NavbarRoute(),
+        predicate: (route) => false,
+      );
 }

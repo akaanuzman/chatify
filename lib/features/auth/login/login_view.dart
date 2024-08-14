@@ -159,7 +159,7 @@ final class _SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: context.inherited.goToHomePage,
       child: const Text(LocaleKeys.buttons_auth_signIn).tr(),
     );
   }
