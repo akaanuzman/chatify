@@ -18,7 +18,6 @@
     "navbar": {
         "messages": "Mesajlar",
         "settings": "Ayarlar",
-        "logout": "Çıkış Yap",
         "profile": "Profil"
     },
     "buttons": {
@@ -28,7 +27,13 @@
             "forgotPassword": "Şifremi Unuttum"
         },
         "yes": "Evet",
-        "no": "Hayır"
+        "no": "Hayır",
+        "cancel": "İptal",
+        "chat": {
+            "pin": "Sohbeti Sabitle",
+            "clear": "Sohbeti Temizle",
+            "info": "Kişi Bilgisi"
+        }
     },
     "dialogs": {
         "logout": {
@@ -41,7 +46,8 @@
             "username": "Kullanıcı Adı",
             "email": "E-posta",
             "password": "Şifre",
-            "confirmPassword": "Şifreyi Onayla"
+            "confirmPassword": "Şifreyi Onayla",
+            "search": "Ara"
         },
         "hints": {
             "username": "örnek",
@@ -49,21 +55,9 @@
             "password": "********"
         }
     },
-    "home": {
-        "title": "Ana Sayfa",
-        "description": "Bu bir açıklamadır."
-    },
-    "general": {
-        "buttons": {
-            "save": "Kaydet",
-            "cancel": "İptal",
-            "changeLanguage": "Dili Değiştir"
-        },
-        "dialogs": {
-            "version": {
-                "title": "Sürüm",
-                "message": "Sürüm: {0}"
-            }
-        }
+    "chat": {
+        "archived": "Arşivlenmiş",
+        "archive": "Arşivle",
+        "more": "Daha Fazla"
     }
 }

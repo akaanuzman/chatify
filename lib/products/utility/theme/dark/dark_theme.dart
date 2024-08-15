@@ -31,10 +31,17 @@ final class DarkTheme implements IAppTheme {
             color: ColorName.lightText,
             fontSize: 20,
             fontFamily: 'Montserrat',
+            fontWeight: FontWeight.bold,
           ),
         ),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           selectedItemColor: ColorName.primary,
+        ),
+        dividerTheme: const DividerThemeData(
+          color: ColorName.gray,
+          space: 1,
+          thickness: .25,
+          indent: 70,
         ),
       );
 
