@@ -21,7 +21,7 @@ final class RegisterInherited extends InheritedWidget {
     final result =
         context.dependOnInheritedWidgetOfExactType<RegisterInherited>();
     if (result == null) {
-      throw Exception('LoginInheritedState not found in context');
+      throw Exception('RegisterInheritedState not found in context');
     }
     return result.data;
   }

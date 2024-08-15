@@ -18,7 +18,6 @@
     "navbar": {
         "messages": "Messages",
         "settings": "Settings",
-        "logout": "Logout",
         "profile": "Profile"
     },
     "buttons": {
@@ -28,7 +27,13 @@
             "forgotPassword": "Forgot Password?"
         },
         "yes": "Yes",
-        "no": "No"
+        "no": "No",
+        "cancel": "Cancel",
+        "chat": {
+            "pin": "Pin Chat",
+            "clear": "Clear Chat",
+            "info": "Contact Info"
+        }
     },
     "dialogs": {
         "logout": {
@@ -41,7 +46,8 @@
             "username": "Username",
             "email": "E-mail",
             "password": "Password",
-            "confirmPassword": "Confirm Password"
+            "confirmPassword": "Confirm Password",
+            "search": "Search"
         },
         "hints": {
             "username": "example",
@@ -49,21 +55,9 @@
             "password": "********"
         }
     },
-    "home": {
-        "title": "Home Page",
-        "description": "This is a description."
-    },
-    "general": {
-        "buttons": {
-            "save": "Save",
-            "cancel": "Cancel",
-            "changeLanguage": "Change Language"
-        },
-        "dialogs": {
-            "version": {
-                "title": "Version",
-                "message": "Version: {0}"
-            }
-        }
+    "chat": {
+        "archived": "Archived",
+        "archive": "Archive",
+        "more": "More"
     }
 }

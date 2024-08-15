@@ -34,6 +34,30 @@ final class LightTheme implements IAppTheme {
             color: ColorName.darkText,
             fontSize: 20,
             fontFamily: 'Montserrat',
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        dividerTheme: const DividerThemeData(
+          color: ColorName.gray,
+          space: 1,
+          thickness: .25,
+          indent: 70,
+        ),
+        listTileTheme: ListTileThemeData(
+          titleTextStyle: currentTextTheme.bodySmall?.copyWith(
+            color: ColorName.darkText,
+            fontSize: 14,
+            fontFamily: 'Montserrat',
+          ),
+          subtitleTextStyle: currentTextTheme.bodySmall?.copyWith(
+            color: ColorName.gray,
+            fontSize: 12,
+            fontFamily: 'Montserrat',
+          ),
+          leadingAndTrailingTextStyle: currentTextTheme.bodySmall?.copyWith(
+            color: ColorName.gray,
+            fontSize: 10,
+            fontFamily: 'Montserrat',
           ),
         ),
       );

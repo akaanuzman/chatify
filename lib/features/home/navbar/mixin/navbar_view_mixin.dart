@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chatify_app/features/home/chat/state/chat_inherited_state.dart';
 import 'package:chatify_app/features/home/navbar/navbar_view.dart';
 import 'package:chatify_app/products/components/dialog/approve_adaptive_yes_no_dialog.dart';
 import 'package:chatify_app/products/init/language/locale_keys.g.dart';
@@ -35,7 +36,7 @@ mixin NavbarViewMixin on State<NavbarView> {
 
   /// The pages for the bottom navigation bar.
   final List<Widget> pages = <Widget>[
-    const Center(child: Text('Messages')),
+    const ChatInheritedProviderView(),
     const Center(child: Text('Settings')),
     const Center(child: Text('Profile')),
   ];
