@@ -16,9 +16,8 @@
         }
     },
     "navbar": {
-        "messages": "Mesajlar",
-        "settings": "Ayarlar",
-        "profile": "Profil"
+        "chats": "Sohbetler",
+        "settings": "Ayarlar"
     },
     "buttons": {
         "auth": {

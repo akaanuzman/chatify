@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/home/chat/state/chat_inherited_state.dart';
 import 'package:chatify_app/features/home/navbar/navbar_view.dart';
+import 'package:chatify_app/features/home/settings/settings_view.dart';
 import 'package:chatify_app/products/components/dialog/approve_adaptive_yes_no_dialog.dart';
 import 'package:chatify_app/products/init/language/locale_keys.g.dart';
 import 'package:chatify_app/products/models/bottom_navbar_item_model.dart';
@@ -12,16 +13,14 @@ import 'package:flutter/cupertino.dart';
 mixin NavbarViewMixin on State<NavbarView> {
   /// The labels for the bottom navigation bar.
   final List<String> labels = <String>[
-    LocaleKeys.navbar_messages.tr(),
+    LocaleKeys.navbar_chats.tr(),
     LocaleKeys.navbar_settings.tr(),
-    LocaleKeys.navbar_profile.tr(),
   ];
 
   /// The icons for the bottom navigation bar.
   final List<IconData> icons = <IconData>[
     CupertinoIcons.chat_bubble_2_fill,
     CupertinoIcons.settings,
-    CupertinoIcons.person_fill,
   ];
 
   /// The bottom navigation bar items.
@@ -37,8 +36,7 @@ mixin NavbarViewMixin on State<NavbarView> {
   /// The pages for the bottom navigation bar.
   final List<Widget> pages = <Widget>[
     const ChatInheritedProviderView(),
-    const Center(child: Text('Settings')),
-    const Center(child: Text('Profile')),
+    const SettingsView(),
   ];
 
   /// The selected index notifier for the bottom navigation bar.
