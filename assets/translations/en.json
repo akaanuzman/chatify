@@ -16,9 +16,8 @@
         }
     },
     "navbar": {
-        "messages": "Messages",
-        "settings": "Settings",
-        "profile": "Profile"
+        "chats": "Chats",
+        "settings": "Settings"
     },
     "buttons": {
         "auth": {
