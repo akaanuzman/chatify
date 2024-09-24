@@ -7,6 +7,7 @@ final class ChatifyTextFormField extends StatelessWidget {
   /// The default constructor.
   const ChatifyTextFormField({
     this.obscureText = false,
+    this.readOnly = false,
     super.key,
     this.label,
     this.hintText,
@@ -36,6 +37,9 @@ final class ChatifyTextFormField extends StatelessWidget {
   /// Whether the text form field is obscure text or not.
   final bool obscureText;
 
+  /// Whether the text form field is read only or not.
+  final bool readOnly;
+
   /// The keyboard type of the text form field.
   final TextInputType? keyboardType;
 
@@ -56,6 +60,7 @@ final class ChatifyTextFormField extends StatelessWidget {
         suffixIcon: suffixIcon,
         contentPadding: context.padding.normal,
       ),
+      readOnly: readOnly,
       controller: controller,
       keyboardType: keyboardType,
       textInputAction: textInputAction,

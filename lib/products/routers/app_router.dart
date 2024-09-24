@@ -3,6 +3,7 @@ import 'package:chatify_app/features/auth/login/state/login_inherited_state.dart
 import 'package:chatify_app/features/auth/register/state/register_inherited_state.dart';
 import 'package:chatify_app/features/common/splash/splash_view.dart';
 import 'package:chatify_app/features/home/navbar/navbar_view.dart';
+import 'package:chatify_app/features/home/profile/profile_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -16,5 +17,6 @@ final class AppRouter extends _$AppRouter {
         AutoRoute(page: NavbarRoute.page),
         AutoRoute(page: LoginInheritedProviderRoute.page),
         AutoRoute(page: RegisterInheritedProviderRoute.page),
+        AutoRoute(page: ProfileRoute.page),
       ];
 }

@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/products/asset/colors.gen.dart';
+import 'package:chatify_app/products/routers/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -38,6 +40,12 @@ class _SettingsViewState extends State<SettingsView> {
                 title: 'Theme',
                 value: 'Light',
               ),
+              Divider(indent: 0),
+              _SettingsItem(
+                icon: Icons.logout,
+                title: 'Logout',
+                value: '',
+              ),
             ],
           ),
         ),
@@ -62,6 +70,7 @@ final class _UserProfileItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () => context.router.push(const ProfileRoute()),
       title: Row(
         children: [
           CircleAvatar(
