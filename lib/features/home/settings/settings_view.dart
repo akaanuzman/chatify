@@ -1,4 +1,8 @@
-import 'package:chatify_app/products/asset/colors.gen.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:chatify_app/features/home/settings/mixin/settings_view_mixin.dart';
+import 'package:chatify_app/products/init/language/locale_keys.g.dart';
+import 'package:chatify_app/products/routers/app_router.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -11,32 +15,45 @@ final class SettingsView extends StatefulWidget {
   State<SettingsView> createState() => _SettingsViewState();
 }
 
-class _SettingsViewState extends State<SettingsView> {
+class _SettingsViewState extends State<SettingsView> with SettingsViewMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: context.padding.low,
-        child: const Card(
+        child: Card(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _UserProfileItem(
+              const _UserProfileItem(
                 avatarText: 'A',
                 username: 'kaan',
-                subtitle: 'kaan',
               ),
-              Divider(indent: 0),
+              const Divider(indent: 0),
               _SettingsItem(
                 icon: Icons.translate,
-                title: 'Language',
-                value: 'English',
+                title: LocaleKeys.settings_language_title,
+                value: LocaleKeys.settings_language_options_turkish,
+                onTap: () {},
               ),
-              Divider(indent: 0),
+              const Divider(indent: 0),
               _SettingsItem(
                 icon: Icons.light_mode,
-                title: 'Theme',
-                value: 'Light',
+                title: LocaleKeys.settings_theme_title,
+                value: LocaleKeys.settings_theme_options_dark,
+                onTap: () {},
+              ),
+              const Divider(indent: 0),
+              _SettingsItem(
+                icon: Icons.lock_reset,
+                title: LocaleKeys.buttons_settings_changePassword,
+                onTap: () {},
+              ),
+              const Divider(indent: 0),
+              _SettingsItem(
+                icon: Icons.logout,
+                title: LocaleKeys.buttons_settings_logout,
+                onTap: () => logout(context),
               ),
             ],
           ),
@@ -52,34 +69,22 @@ final class _UserProfileItem extends StatelessWidget {
   const _UserProfileItem({
     required this.avatarText,
     required this.username,
-    required this.subtitle,
   });
 
   final String avatarText;
   final String username;
-  final String subtitle;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () => context.router.push(const ProfileRoute()),
       title: Row(
         children: [
           CircleAvatar(
             child: Text(avatarText),
           ),
           context.sized.emptySizedWidthBoxLow3x,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(username),
-              Text(
-                subtitle,
-                style: context.general.textTheme.bodySmall?.copyWith(
-                  color: ColorName.gray,
-                ),
-              ),
-            ],
-          ),
+          Text(username),
         ],
       ),
       trailing: const Icon(Icons.chevron_right),
@@ -93,23 +98,31 @@ final class _SettingsItem extends StatelessWidget {
   const _SettingsItem({
     required this.icon,
     required this.title,
-    required this.value,
+    required this.onTap,
+    this.value,
   });
   final IconData icon;
   final String title;
-  final String value;
+  final String? value;
+  final void Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Row(
-        children: [
-          Icon(icon),
-          context.sized.emptySizedWidthBoxLow3x,
-          Text(title),
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: ListTile(
+        title: Row(
+          children: [
+            Icon(icon),
+            context.sized.emptySizedWidthBoxLow3x,
+            Text(title.tr()),
+          ],
+        ),
+        trailing: Visibility(
+          visible: value != null,
+          child: Text(value?.tr() ?? ''),
+        ),
       ),
-      trailing: Text(value),
     );
   }
 }

@@ -9,10 +9,17 @@ import 'package:flutter/material.dart';
 /// It requires emailController.
 final class EmailField extends StatelessWidget {
   /// The default constructor.
-  const EmailField({required this.emailController, super.key});
+  const EmailField({
+    required this.emailController,
+    this.readOnly = false,
+    super.key,
+  });
 
   /// The email controller.
   final TextEditingController emailController;
+
+  /// Whether the text form field is read only or not.
+  final bool readOnly;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +30,7 @@ final class EmailField extends StatelessWidget {
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
       textInputAction: TextInputAction.next,
+      readOnly: readOnly,
     );
   }
 }

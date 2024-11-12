@@ -1,4 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:chatify_app/products/init/language/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -122,12 +124,12 @@ final class ApproveAdaptiveYesNoDialog extends StatelessWidget {
       content: content == '' ? null : Text(content),
       actions: [
         _SpecialAction(
-          label: noText ?? 'No',
+          label: noText ?? LocaleKeys.buttons_no,
           onPressed: onNoPressed,
           textColor: noTextColor ?? context.general.appTheme.colorScheme.error,
         ),
         _SpecialAction(
-          label: yesText ?? 'Yes',
+          label: yesText ?? LocaleKeys.buttons_yes,
           onPressed: onYesPressed,
           textColor: yesTextColor,
         ),
@@ -136,6 +138,14 @@ final class ApproveAdaptiveYesNoDialog extends StatelessWidget {
   }
 }
 
+/// Special action for the dialog.
+/// [label] is required.
+/// [textColor] is optional.
+/// If you want to change the color of the text, you must use
+/// [textColor] parameter.
+/// [onPressed] is optional.
+/// If you want to call the method that will run when the button is clicked,
+/// you must use [onPressed] parameter.
 final class _SpecialAction extends StatelessWidget {
   const _SpecialAction({
     required this.label,
@@ -151,7 +161,7 @@ final class _SpecialAction extends StatelessWidget {
     return TextButton(
       onPressed: onPressed ?? context.router.maybePop,
       child: Text(
-        label,
+        label.tr(),
         style: TextStyle(color: textColor),
         textAlign: TextAlign.center,
       ),

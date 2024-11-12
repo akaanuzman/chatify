@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:chatify_app/features/home/navbar/mixin/navbar_view_mixin.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -26,12 +25,6 @@ class _NavbarViewState extends State<NavbarView> with NavbarViewMixin {
             return Text(labels.elementAt(selectedIndexNotifier.value));
           },
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(CupertinoIcons.power),
-            onPressed: () => logout(context),
-          ),
-        ],
       ),
       body: ValueListenableBuilder(
         valueListenable: selectedIndexNotifier,
