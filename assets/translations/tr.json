@@ -32,6 +32,11 @@
             "pin": "Sohbeti Sabitle",
             "clear": "Sohbeti Temizle",
             "info": "Kişi Bilgisi"
+        },
+        "save": "Kaydet",
+        "settings": {
+            "changePassword": "Şifre Değiştir",
+            "logout": "Çıkış Yap"
         }
     },
     "dialogs": {
@@ -58,5 +63,25 @@
         "archived": "Arşivlenmiş",
         "archive": "Arşivle",
         "more": "Daha Fazla"
+    },
+    "settings": {
+        "language": {
+            "title": "Dil",
+            "options": {
+                "english": "İngilizce",
+                "turkish": "Türkçe"
+            }
+        },
+        "theme": {
+            "title": "Tema",
+            "options": {
+                "light": "Açık",
+                "dark": "Koyu",
+                "system": "Sistem"
+            }
+        }
+    },
+    "profile": {
+        "title": "Profil"
     }
 }

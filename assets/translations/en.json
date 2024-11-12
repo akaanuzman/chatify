@@ -32,6 +32,11 @@
             "pin": "Pin Chat",
             "clear": "Clear Chat",
             "info": "Contact Info"
+        },
+        "save": "Save",
+        "settings": {
+            "changePassword": "Change Password",
+            "logout": "Logout"
         }
     },
     "dialogs": {
@@ -58,5 +63,25 @@
         "archived": "Archived",
         "archive": "Archive",
         "more": "More"
+    },
+    "settings": {
+        "language": {
+            "title": "Language",
+            "options": {
+                "english": "English",
+                "turkish": "Turkish"
+            }
+        },
+        "theme": {
+            "title": "Theme",
+            "options": {
+                "light": "Light",
+                "dark": "Dark",
+                "system": "System"
+            }
+        }
+    },
+    "profile": {
+        "title": "Profile"
     }
 }
