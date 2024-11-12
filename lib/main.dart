@@ -25,7 +25,7 @@ final class _MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      theme: const AppTheme(isDark: false).currentTheme,
+      theme: const AppTheme(isDark: true).currentTheme,
     );
   }
 }

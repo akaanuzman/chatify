@@ -10,7 +10,7 @@ part 'app_router.gr.dart';
 @AutoRouterConfig(replaceInRouteName: 'View,Route')
 
 /// AppRouter is the main router management class for the app.
-final class AppRouter extends _$AppRouter {
+final class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: true),
